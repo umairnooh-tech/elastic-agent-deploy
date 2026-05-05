@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Configuration
-ELASTIC_VERSION="8.13.4"                         # Change to your desired version
-FLEET_URL="https://your-fleet-server:8220"       # Replace with your Fleet Server URL
-ENROLLMENT_TOKEN="YOUR_ENROLLMENT_TOKEN_HERE"    # Replace with your enrollment token
+ELASTIC_VERSION="9.3.0"                         # Change to your desired version
+FLEET_URL="https://c29103dc6bc0466389c4ad07f2600d26.fleet.ap-south-1.aws.elastic-cloud.com:443"       # Replace with your Fleet Server URL
+ENROLLMENT_TOKEN="Uldac3NKMEIwT3o5ZjRYVVZJcnI6RzdJeWgzc2RobDY2dGFVQUU4VHVjdw=="    # Replace with your enrollment token
 INSTALL_DIR="/Library/Elastic/Agent"
 TMP_DIR="/tmp/elastic_agent_install"
 LOG_FILE="/var/log/elastic_agent_deploy.log"

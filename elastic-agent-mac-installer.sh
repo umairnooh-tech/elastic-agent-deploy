@@ -151,6 +151,7 @@ extract_and_install() {
         --url="$FLEET_URL" \
         --enrollment-token="$ENROLLMENT_TOKEN" \
         --non-interactive \
+        --insecure \
         || error "Elastic Agent installation failed."
  
     success "Elastic Agent installed successfully."

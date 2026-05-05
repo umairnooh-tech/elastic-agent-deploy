@@ -46,11 +46,11 @@ jobs:
           echo "Architecture:  $(uname -m)"
 
       - name: Make script executable
-        run: chmod +x deploy_elastic_agent.sh
+        run: chmod +x elastic-agent-mac-installer.sh
 
       - name: Run in Dry-Run mode
         run: |
-          sudo bash deploy_elastic_agent.sh --dry-run
+          sudo bash elastic-agent-mac-installer.sh --dry-run
         env:
           FLEET_URL: "https://c29103dc6bc0466389c4ad07f2600d26.fleet.ap-south-1.aws.elastic-cloud.com:443"
           ENROLLMENT_TOKEN: "Uldac3NKMEIwT3o5ZjRYVVZJcnI6RzdJeWgzc2RobDY2dGFVQUU4VHVjdw=="

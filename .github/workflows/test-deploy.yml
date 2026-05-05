@@ -10,7 +10,7 @@ jobs:
   # ── Test on Intel Mac (x86_64) ──────────────────────────────────────────────
   test-macos-intel:
     name: macOS Intel (x86_64)
-    runs-on: macos-13-large
+    runs-on: macos-14
 
     steps:
       - name: Checkout repository

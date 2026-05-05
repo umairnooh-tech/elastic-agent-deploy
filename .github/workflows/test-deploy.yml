@@ -1,0 +1,56 @@
+name: Test Elastic Agent Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:       # allows manual trigger from GitHub UI
+
+jobs:
+
+  # ── Test on Intel Mac (x86_64) ──────────────────────────────────────────────
+  test-macos-intel:
+    name: macOS Intel (x86_64)
+    runs-on: macos-13
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show system info
+        run: |
+          echo "macOS Version: $(sw_vers -productVersion)"
+          echo "Architecture:  $(uname -m)"
+
+      - name: Make script executable
+        run: chmod +x deploy_elastic_agent.sh
+
+      - name: Run in Dry-Run mode
+        run: |
+          sudo bash deploy_elastic_agent.sh --dry-run
+        env:
+          FLEET_URL: "https://c29103dc6bc0466389c4ad07f2600d26.fleet.ap-south-1.aws.elastic-cloud.com:443"
+          ENROLLMENT_TOKEN: "Uldac3NKMEIwT3o5ZjRYVVZJcnI6RzdJeWgzc2RobDY2dGFVQUU4VHVjdw=="
+
+  # ── Test on Apple Silicon Mac (arm64) ───────────────────────────────────────
+  test-macos-arm:
+    name: macOS Apple Silicon (arm64)
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show system info
+        run: |
+          echo "macOS Version: $(sw_vers -productVersion)"
+          echo "Architecture:  $(uname -m)"
+
+      - name: Make script executable
+        run: chmod +x deploy_elastic_agent.sh
+
+      - name: Run in Dry-Run mode
+        run: |
+          sudo bash deploy_elastic_agent.sh --dry-run
+        env:
+          FLEET_URL: "https://c29103dc6bc0466389c4ad07f2600d26.fleet.ap-south-1.aws.elastic-cloud.com:443"
+          ENROLLMENT_TOKEN: "Uldac3NKMEIwT3o5ZjRYVVZJcnI6RzdJeWgzc2RobDY2dGFVQUU4VHVjdw=="
